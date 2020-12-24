@@ -2,8 +2,14 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 
 public class WorkWCom2 {
-    SerialPort com2Worker = new SerialPort("com2");
+    SerialPort com2Worker = null;
 
+    public String setcom2WorkerPortName(String minePortName){   //Специально написал чтобы можно было получать имя порта извне
+        com2Worker = new SerialPort(minePortName);
+        return minePortName;
+    }
+
+    
     public SerialPort getCom2Worker() throws SerialPortException {
         System.out.println("getCom2Worker start");
         com2Worker.openPort();

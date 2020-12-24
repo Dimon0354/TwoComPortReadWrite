@@ -3,7 +3,12 @@ import jssc.SerialPortException;
 
 public class WorkWCom1{
 
-    SerialPort com1Worker = new SerialPort("com1"); //port writer
+    SerialPort com1Worker = null; //port writer
+
+    public String setcom1WorkerPortName(String minePortName){   //Специально написал чтобы можно было получать имя порта извне
+        com1Worker = new SerialPort(minePortName);
+        return minePortName;
+    }
 
     public SerialPort getCom1Worker() throws SerialPortException {
 
